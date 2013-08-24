@@ -1,3 +1,4 @@
 _vim/bundle/*
 _vim/_vim
+_tmuxinator/_tmuxinator
 !_vim/bundle/.keep
