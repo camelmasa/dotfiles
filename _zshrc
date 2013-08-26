@@ -1,10 +1,14 @@
 # see https://github.com/robbyrussell/oh-my-zsh/tree/master/lib
 
+# lightline.vimの設定に必要
+export TERM=xterm-256color
+
+# Boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
-PROMPT="%3~$(git_prompt_info) "
-
+# Alias
 alias g=git
+alias ls='ls -G'
 alias ll='ls -lG'
 alias ...='cd ../..'
 alias -- -='cd -'
@@ -35,7 +39,7 @@ function git_prompt_info() {
 }
 
 # Checks if working tree is dirty
-function parse_git_dirty() {
+parse_git_dirty() {
   local SUBMODULE_SYNTAX=''
   local GIT_STATUS=''
   local CLEAN_MESSAGE='nothing to commit (working directory clean)'
@@ -59,7 +63,7 @@ function parse_git_dirty() {
 }
 
 # get the difference between the local and remote branches
-function git_remote_status() {
+git_remote_status() {
   remote=${$(command git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
   if [[ -n ${remote} ]] ; then
     ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
@@ -169,7 +173,7 @@ unset -f git_compare_version
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
-## Command history configuration
+## History Config
 if [ -z $HISTFILE ]; then
   HISTFILE=$HOME/.zsh_history
 fi
@@ -179,8 +183,17 @@ SAVEHIST=10000
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
-setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
-setopt share_history # share command history data
+setopt share_history
+
+# PCRE 互換の正規表現を使う
+setopt re_match_pcre
+
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst
+
+PROMPT="%3~$(git_prompt_info) "
+

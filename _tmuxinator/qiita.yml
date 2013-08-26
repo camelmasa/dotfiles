@@ -1,19 +1,7 @@
-# ~/.tmuxinator/qiita.yml
-# you can make as many tabs as you wish...
-
 project_name: Qiita
 project_root: ~/Increments/Qiita
-# socket_name: foo # Not needed.  Remove to use default socket
-# rvm: 1.9.2@rails_project
-# pre: sudo /etc/rc.d/mysqld start
 tabs:
-  - server: sudo bundle exec rails s -p 80
-  - logs: tail -f log/development.log
+  - server: ./script/server_with_tailing
   - guard: bundle exec guard
   - console: bundle exec rails c
-  # - server: ssh qiita.com
   - editor:
-      #layout: main-vertical
-      #panes:
-      #  - vim
-      #  - top

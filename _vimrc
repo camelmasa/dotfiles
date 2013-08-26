@@ -3,6 +3,15 @@
 " vim: foldcolumn=3
 " vim: foldlevel=0
 
+" エンコード
+set encoding=utf-8
+
+" ステータスラインの表示
+set laststatus=2
+
+" シンタックスを有効
+syntax enable
+
 " タブ幅の設定
 set expandtab
 set tabstop=2
@@ -35,9 +44,11 @@ if filereadable(expand('$HOME/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
+
 " プラグイン {{{1
 
 " neobundle  {{{2
+
 set nocompatible
 filetype off
 
@@ -45,6 +56,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache.vim'
@@ -54,21 +66,23 @@ NeoBundle 'tpope/vim-pathogen'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'itchyny/landscape.vim'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'ngmy/vim-rubocop'
+NeoBundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 filetype indent on
-syntax on
 
 NeoBundleCheck
 
+
 " neocomplcache {{{2
 
-"" Disable AutoComplPop.
+" Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 
 " Use neocomplcache.
@@ -83,9 +97,30 @@ let g:neocomplcache_min_syntax_length = 2
 " let g:neocomplete#enable_at_startup = 1
 
 
-" vim-colors-solarized {{{2
+" lightline.vim {{{2
 
-syntax enable
-set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
+if !has('gui_running')
+  set t_Co=256
+endif
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+" set guifont=Inconsolata-dz\ for\ Powerline:h15
+" set guifont=InconsolataForPowerline-dz:h15
+" let g:Powerline_symbols = 'fancy'
+
+
+" nerdtree.vim {{{2
+
+" ファイルが無かったらNERDTreeを開かない
+autocmd vimenter * if !argc() | NERDTree | endif
+
+" Ctrl-gでNERDTreeをトグル
+map <C-g> :NERDTreeToggle<CR>

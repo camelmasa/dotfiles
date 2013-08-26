@@ -1,9 +1,21 @@
 [credential]
-helper = /opt/boxen/bin/boxen-git-credential
+  helper = /opt/boxen/bin/boxen-git-credential
 [core]
-excludesfile = /opt/boxen/config/git/gitignore
+  excludesfile = /opt/boxen/config/git/gitignore
+	editor = vim
 [hub]
-protocol = https
+  protocol = https
 [user]
 	name = camelmasa
 	email = camelmasa@gmail.com
+[color]
+	ui = auto
+[alias]
+  u = "!sh -c 'git ft; git rsm; git delete-merged-branches'"
+  ft = fetch --prune
+  rsm = update-ref refs/heads/master origin/master
+  delete-merged-branches = !"brs=`git branch --merged master | grep -v master | grep -v '*'` && git branch -D $brs || true"
+	co = checkout
+	ci = commit
+	st = status
+	br = branch

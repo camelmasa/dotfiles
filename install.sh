@@ -1,4 +1,5 @@
-ln -s ~/dotfiles/_zshrc ~/.zshrc
+cp -rf ~/dotfiles/_zshrc ~/.zshrc
+
 ln -s ~/dotfiles/_vimrc ~/.vimrc
 ln -s ~/dotfiles/_vim ~/.vim
 ln -s ~/dotfiles/_gitconfig ~/.gitconfig
