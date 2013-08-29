@@ -1,12 +1,43 @@
-# see https://github.com/robbyrussell/oh-my-zsh/tree/master/lib
+# 基本設定 {{{1
+
+# gitの補完を有効にする
+fpath=(~/.zsh/completion $fpath)
+
+autoload -U compinit
+compinit -u
+
+
+# VCSの情報を取得する
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+
+# プロンプトを表示直前に呼び出し
+precmd () {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
+# 右側プロンプトの設定
+RPROMPT="%1(v|%F{green}%1v%f|)"
+# PROMPT="%3:"
+PROMPT='[%d]: '
+# PROMPT="%3:$(git_prompt_info) "
+
+# PCRE 互換の正規表現を使う
+setopt re_match_pcre
+
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst
 
 # lightline.vimの設定に必要
 export TERM=xterm-256color
 
-# Boxen
+# Boxenの設定を読み込む
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
-# Alias
+# Aliasの設定
 alias g=git
 alias ls='ls -G'
 alias ll='ls -lG'
@@ -33,9 +64,9 @@ cd () {
 
 # get the name of the branch we are on
 function git_prompt_info() {
-  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-  echo "[${ref#refs/heads/}$(parse_git_dirty)]"
+echo "[${ref#refs/heads/}$(parse_git_dirty)]"
 }
 
 # Checks if working tree is dirty
@@ -84,19 +115,19 @@ git_remote_status() {
 
 # Checks if there are commits ahead from remote
 function git_prompt_ahead() {
-  if $(echo "$(command git log origin/$(current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
-    echo "$ZSH_THEME_GIT_PROMPT_AHEAD"
-  fi
+if $(echo "$(command git log origin/$(current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+  echo "$ZSH_THEME_GIT_PROMPT_AHEAD"
+fi
 }
 
 # Formats prompt string for current git commit short SHA
 function git_prompt_short_sha() {
-  SHA=$(command git rev-parse --short HEAD 2> /dev/null) && echo "$ZSH_THEME_GIT_PROMPT_SHA_BEFORE$SHA$ZSH_THEME_GIT_PROMPT_SHA_AFTER"
+SHA=$(command git rev-parse --short HEAD 2> /dev/null) && echo "$ZSH_THEME_GIT_PROMPT_SHA_BEFORE$SHA$ZSH_THEME_GIT_PROMPT_SHA_AFTER"
 }
 
 # Formats prompt string for current git commit long SHA
 function git_prompt_long_sha() {
-  SHA=$(command git rev-parse HEAD 2> /dev/null) && echo "$ZSH_THEME_GIT_PROMPT_SHA_BEFORE$SHA$ZSH_THEME_GIT_PROMPT_SHA_AFTER"
+SHA=$(command git rev-parse HEAD 2> /dev/null) && echo "$ZSH_THEME_GIT_PROMPT_SHA_BEFORE$SHA$ZSH_THEME_GIT_PROMPT_SHA_AFTER"
 }
 
 # Get the status of the working tree
@@ -150,19 +181,19 @@ git_prompt_status() {
 #prints 1 if input version <= installed version
 #prints -1 otherwise
 function git_compare_version() {
-  local INPUT_GIT_VERSION=$1;
-  local INSTALLED_GIT_VERSION
-  INPUT_GIT_VERSION=(${(s/./)INPUT_GIT_VERSION});
-  INSTALLED_GIT_VERSION=($(command git --version 2>/dev/null));
-  INSTALLED_GIT_VERSION=(${(s/./)INSTALLED_GIT_VERSION[3]});
-  
-  for i in {1..3}; do
-    if [[ $INSTALLED_GIT_VERSION[$i] -lt $INPUT_GIT_VERSION[$i] ]]; then
-      echo -1
-      return 0
-    fi
-  done
-  echo 1
+local INPUT_GIT_VERSION=$1;
+local INSTALLED_GIT_VERSION
+INPUT_GIT_VERSION=(${(s/./)INPUT_GIT_VERSION});
+INSTALLED_GIT_VERSION=($(command git --version 2>/dev/null));
+INSTALLED_GIT_VERSION=(${(s/./)INSTALLED_GIT_VERSION[3]});
+
+for i in {1..3}; do
+  if [[ $INSTALLED_GIT_VERSION[$i] -lt $INPUT_GIT_VERSION[$i] ]]; then
+    echo -1
+    return 0
+  fi
+done
+echo 1
 }
 
 #this is unlikely to change so make it all statically assigned
@@ -189,11 +220,6 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-# PCRE 互換の正規表現を使う
-setopt re_match_pcre
-
-# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
-
-PROMPT="%3~$(git_prompt_info) "
-
+# vim: foldmethod=marker
+# vim: foldcolumn=3
+# vim: foldlevel=0
