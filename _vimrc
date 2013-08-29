@@ -1,8 +1,4 @@
 " 基本設定 {{{1
-" vim: foldmethod=marker
-" vim: foldcolumn=3
-" vim: foldlevel=0
-
 " エンコード
 set encoding=utf-8
 
@@ -124,3 +120,9 @@ autocmd vimenter * if !argc() | NERDTree | endif
 
 " Ctrl-gでNERDTreeをトグル
 map <C-g> :NERDTreeToggle<CR>
+
+
+
+" vim: foldmethod=marker
+" vim: foldcolumn=3
+" vim: foldlevel=0
