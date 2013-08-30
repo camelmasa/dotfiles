@@ -40,6 +40,12 @@ if filereadable(expand('$HOME/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
+" インサートモードを抜けたらIMEの日本語入力を自動的にOFFにする
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+" 保存していなくても別のファイルを開く
+set hidden
+
 
 " プラグイン {{{1
 
@@ -69,6 +75,9 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'vim-scripts/TwitVim'
+NeoBundle 'rizzatti/funcoo.vim'
+NeoBundle 'rizzatti/dash.vim'
 
 filetype plugin indent on
 filetype indent on
