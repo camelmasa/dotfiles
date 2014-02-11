@@ -1,0 +1,5 @@
+project_name: Blog
+project_root: ~/Blog
+windows:
+  - server: jekyll serve --watch
+  - editor: vim

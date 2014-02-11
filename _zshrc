@@ -1,3 +1,7 @@
+# vim: foldmethod=marker
+# vim: foldcolumn=3
+# vim: foldlevel=0
+
 # 基本設定 {{{1
 
 # gitの補完を有効にする
@@ -220,6 +224,11 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-# vim: foldmethod=marker
-# vim: foldcolumn=3
-# vim: foldlevel=0
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### For hub
+eval "$(hub alias -s)"
+
+# added by travis gem
+[ -f /Users/camelmasa/.travis/travis.sh ] && source /Users/camelmasa/.travis/travis.sh

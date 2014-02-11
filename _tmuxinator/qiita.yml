@@ -1,8 +1,0 @@
-project_name: Qiita
-project_root: ~/Increments/Qiita
-tabs:
-  - server: ./script/server_with_tailing
-  - guard: bundle exec guard
-  - console: bundle exec rails c
-  - editor: vim
-  - terminal:

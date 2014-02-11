@@ -1,10 +1,10 @@
 [credential]
   helper = /opt/boxen/bin/boxen-git-credential
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = /opt/boxen/config/git/gitignore
 	editor = vim
 [hub]
-  protocol = https
+	protocol = https
 [user]
 	name = camelmasa
 	email = camelmasa@gmail.com
