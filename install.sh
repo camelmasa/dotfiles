@@ -5,6 +5,7 @@ ln -s ~/dotfiles/_vim ~/.vim
 ln -s ~/dotfiles/_gitconfig ~/.gitconfig
 ln -s ~/dotfiles/_tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/_tmuxinator ~/.tmuxinator
+ln -s ~/dotfiles/Brewfile ~/Brewfile
 
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
