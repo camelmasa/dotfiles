@@ -21,3 +21,5 @@
 	br = branch
 [github]
 	user = 'camlemasa'
+[push]
+	default = simple
