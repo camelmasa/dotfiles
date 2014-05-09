@@ -235,5 +235,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### For hub
 eval "$(hub alias -s)"
 
+### For direnv
+eval "$(direnv hook zsh)"
+
 # added by travis gem
 [ -f /Users/camelmasa/.travis/travis.sh ] && source /Users/camelmasa/.travis/travis.sh
