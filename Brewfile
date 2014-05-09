@@ -4,9 +4,11 @@ tap homebrew/binary
 tap phinze/homebrew-cask
 
 install wget
+install tree
 install dnsmasq
 install git
 install go --cross-compile-common
+install imagemagick
 install jq
 install mysql
 install node
@@ -33,6 +35,7 @@ cask install heroku-toolbelt
 cask install hipchat
 cask install iterm2
 cask install keyremap4macbook
+cask install limechat
 cask install onepassword
 cask install pckeyboardhack
 cask install sequel-pro
