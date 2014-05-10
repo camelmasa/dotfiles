@@ -24,6 +24,7 @@ install zsh --disble-etcdir
 install brew-cask
 cask install alfred
 cask install colors
+cask install cyberduck
 cask install dash
 cask install dropbox
 cask install flux
