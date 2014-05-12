@@ -37,6 +37,7 @@ cask install hipchat
 cask install iterm2
 cask install keyremap4macbook
 cask install limechat
+cask install openoffice
 cask install onepassword
 cask install pckeyboardhack
 cask install sequel-pro
