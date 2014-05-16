@@ -6,10 +6,13 @@ tap phinze/homebrew-cask
 install wget
 install tree
 install dnsmasq
+install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
 install git
 install go --cross-compile-common
+install hub
 install imagemagick
 install jq
+install memcached
 install mysql
 install node
 install packer
