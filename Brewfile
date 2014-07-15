@@ -6,7 +6,7 @@ tap phinze/homebrew-cask
 install docker
 install dnsmasq
 install git
-install go --cross-compile-common
+install go # --cross-compile-common
 install hub
 install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
 install imagemagick
@@ -15,7 +15,8 @@ install memcached
 install mysql
 install node
 install packer
-install peco
+# Used https://github.com/peco/homebrew-peco
+# install peco
 install postgresql
 install rbenv
 install redis
