@@ -63,6 +63,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle "Shougo/neosnippet-snippets"
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-pathogen'
 NeoBundle 'tpope/vim-rails'
