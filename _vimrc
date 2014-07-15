@@ -1,4 +1,11 @@
 " 基本設定 {{{1
+
+" モードラインを有効にする
+set modeline
+
+" 3行目までをモードラインとして検索する
+set modelines=3
+
 " エンコード
 set encoding=utf-8
 
@@ -76,7 +83,6 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-scripts/TwitVim'
 NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
 
