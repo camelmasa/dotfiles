@@ -1,5 +1,8 @@
 project_name: Flipdesk
 project_root: ~/Socket/Flipdesk
+pre:
+  - rbenv global 2.1.2
+  - rbenv rehash
 windows:
   - server: rails s
   - guard: guard

@@ -3,25 +3,27 @@ update
 tap homebrew/binary
 tap phinze/homebrew-cask
 
-install wget
-install tree
+install docker
 install dnsmasq
-install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
 install git
 install go --cross-compile-common
 install hub
+install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
 install imagemagick
 install jq
 install memcached
 install mysql
 install node
 install packer
+install peco
 install postgresql
 install rbenv
 install redis
 install ruby-build
 install terminal-notifier
 install tmux
+install tree
+install wget
 install zsh --disble-etcdir
 
 install brew-cask

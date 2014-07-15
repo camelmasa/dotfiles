@@ -22,4 +22,9 @@
 [github]
 	user = 'camlemasa'
 [push]
-	default = simple
+	default = current
+[heroku]
+	account = camelmasa
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
