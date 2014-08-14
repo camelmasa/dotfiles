@@ -15,8 +15,10 @@ install memcached
 install mysql
 install node
 install packer
+install hub
+install direnv
 # Used https://github.com/peco/homebrew-peco
-# install peco
+install peco
 install postgresql
 install rbenv
 install redis

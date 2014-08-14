@@ -85,6 +85,8 @@ NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'rizzatti/funcoo.vim'
 NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'thoughtbot/vim-rspec'
 
 filetype plugin indent on
 filetype indent on
@@ -137,6 +139,16 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " Ctrl-gでNERDTreeをトグル
 map <C-g> :NERDTreeToggle<CR>
 
+
+" vim-rspec.vim {{{2
+
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 
 " vim: foldmethod=marker
