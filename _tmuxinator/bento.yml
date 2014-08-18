@@ -2,7 +2,7 @@ project_name: Bento
 project_root: ~/Bento/Bento
 windows:
   - server: rails s
-  - guard: guard
-  - console: rails c
+  - guard: bundle exec guard
+  - console: bundle exec rails c
   - editor: vim
   - terminal:
