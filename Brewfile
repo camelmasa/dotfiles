@@ -3,6 +3,7 @@ update
 tap homebrew/binary
 tap phinze/homebrew-cask
 
+install ag
 install docker
 install dnsmasq
 install git
