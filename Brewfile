@@ -21,6 +21,7 @@ install direnv
 # Used https://github.com/peco/homebrew-peco
 install peco
 install postgresql
+install qt4
 install rbenv
 install redis
 install ruby-build
