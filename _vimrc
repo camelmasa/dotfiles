@@ -31,11 +31,11 @@ set noincsearch
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" 80文字で赤線
+" 120文字で赤線
 set textwidth=0
 if exists('&colorcolumn')
   set colorcolumn=+1
-  autocmd FileType sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=80
+  autocmd FileType sh,cpp,perl,vim,ruby,python,haskell,scheme setlocal textwidth=120
 endif
 
 " 行末にスペースがあれば赤く表示
@@ -63,37 +63,34 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundle 'Shougo/neobundle.vim'
+    NeoBundle 'Shougo/vimproc'
+    NeoBundle 'Shougo/neocomplcache.vim'
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle "Shougo/neosnippet-snippets"
+    NeoBundle 'tpope/vim-fugitive'
+    NeoBundle 'tpope/vim-pathogen'
+    NeoBundle 'tpope/vim-rails'
+    NeoBundle 'vim-ruby/vim-ruby'
+    NeoBundle 'vim-scripts/YankRing.vim'
+    NeoBundle 'itchyny/landscape.vim'
+    NeoBundle 'itchyny/lightline.vim'
+    NeoBundle 'airblade/vim-gitgutter'
+    NeoBundle 'kchmck/vim-coffee-script'
+    NeoBundle 'pangloss/vim-javascript'
+    NeoBundle 'rking/ag.vim'
+    NeoBundle 'ngmy/vim-rubocop'
+    NeoBundle 'scrooloose/nerdtree'
+    NeoBundle 'rizzatti/funcoo.vim'
+    NeoBundle 'rizzatti/dash.vim'
+    NeoBundle 'tpope/vim-dispatch'
+    NeoBundle 'thoughtbot/vim-rspec'
+  call neobundle#end()
 endif
-
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle "Shougo/neosnippet-snippets"
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-pathogen'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'itchyny/landscape.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'ngmy/vim-rubocop'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'rizzatti/funcoo.vim'
-NeoBundle 'rizzatti/dash.vim'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'thoughtbot/vim-rspec'
 
 filetype plugin indent on
 filetype indent on
-
-NeoBundleCheck
-
 
 " neocomplcache {{{2
 
@@ -151,6 +148,10 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+
+" ag.vim {{{2
+
+let g:agprg="ag --column"
 
 " vim: foldmethod=marker
 " vim: foldcolumn=3
