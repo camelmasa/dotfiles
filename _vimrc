@@ -64,6 +64,7 @@ filetype off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundle 'Shougo/unite.vim'
     NeoBundle 'Shougo/neobundle.vim'
     NeoBundle 'Shougo/vimproc'
     NeoBundle 'Shougo/neocomplcache.vim'
@@ -131,8 +132,8 @@ let g:lightline = {
 
 " nerdtree.vim {{{2
 
-" ファイルが無かったらNERDTreeを開かない
-autocmd vimenter * if !argc() | NERDTree | endif
+" ファイルが無かったらNERDTreeを開く
+" autocmd vimenter * if !argc() | NERDTree | endif
 
 " Ctrl-gでNERDTreeをトグル
 map <C-g> :NERDTreeToggle<CR>
@@ -152,6 +153,32 @@ map <Leader>a :call RunAllSpecs()<CR>
 " ag.vim {{{2
 
 let g:agprg="ag --column"
+
+
+" unite.vim {{{2
+
+" insert modeで開始
+let g:unite_enable_start_insert = 1
+
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
 " vim: foldmethod=marker
 " vim: foldcolumn=3
