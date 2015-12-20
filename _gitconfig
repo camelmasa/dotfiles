@@ -19,6 +19,7 @@
 	ci = commit
 	st = status
 	br = branch
+  fetch-pulls = "!f() { git fetch ${1-origin} +refs/pull/*:refs/remotes/pull/*; }; f"
 [github]
 	user = 'camlemasa'
 [push]
