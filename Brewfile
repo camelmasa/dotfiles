@@ -2,6 +2,7 @@ tap 'caskroom/cask'
 
 brew 'ag'
 brew 'direnv'
+brew 'heroku'
 brew 'hub'
 brew 'imagemagick'
 brew 'jq'
