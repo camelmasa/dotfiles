@@ -23,4 +23,4 @@ ln -s ~/dotfiles/Brewfile ~/Brewfile
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
 
-cd ~/dotfiles/.vim/bundle/vimproc && make
+cd ~/.vim/bundle/vimproc && make
