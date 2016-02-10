@@ -1,6 +1,8 @@
 tap 'caskroom/cask'
 
 brew 'ag'
+brew 'boot2docker'
+brew 'docker'
 brew 'direnv'
 brew 'heroku'
 brew 'hub'
@@ -33,3 +35,4 @@ cask 'skitch'
 cask 'slack'
 cask 'steam'
 cask 'tunnelblick'
+cask 'virtualbox'
