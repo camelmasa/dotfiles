@@ -1,13 +1,11 @@
-# Need to install brew, zsh
-
-# Install brew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-brew install brew-cask
-brew install git
-brew tap Homebrew/bundle
-
-git clone https://github.com/camelmasa/dotfiles.git
+# Need to install brew, git, zsh and vim
+#
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#
+# brew install git
+# brew install zsh
+# brew install vim
+# git clone https://github.com/camelmasa/dotfiles.git
 
 cd ~/dotfiles && brew bundle
 

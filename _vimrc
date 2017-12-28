@@ -86,6 +86,7 @@ if has('vim_starting')
     NeoBundle 'rizzatti/funcoo.vim'
     NeoBundle 'rizzatti/dash.vim'
     NeoBundle 'tpope/vim-dispatch'
+    NeoBundle 'fatih/vim-go'
     NeoBundle 'thoughtbot/vim-rspec'
   call neobundle#end()
 endif
