@@ -29,9 +29,6 @@ RPROMPT="%1(v|%F{green}%1v%f|)"
 PROMPT='[%d]: '
 # PROMPT="%3:$(git_prompt_info) "
 
-# PCRE 互換の正規表現を使う
-setopt re_match_pcre
-
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
@@ -243,3 +240,6 @@ eval "$(direnv hook zsh)"
 
 # added by travis gem
 [ -f /Users/camelmasa/.travis/travis.sh ] && source /Users/camelmasa/.travis/travis.sh
+
+# For golang
+export GOPATH=$HOME/gopath
