@@ -18,7 +18,7 @@
 	br = branch
   fetch-pulls = "!f() { git fetch ${1-origin} +refs/pull/*:refs/remotes/pull/*; }; f"
 [github]
-	user = 'camlemasa'
+	user = camelmasa
 [push]
 	default = current
 [heroku]
