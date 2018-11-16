@@ -50,6 +50,9 @@ endif
 " 保存していなくても別のファイルを開く
 set hidden
 
+" クリップボードに保存
+set clipboard=unnamed
+
 
 " プラグイン {{{1
 
@@ -85,6 +88,7 @@ if has('vim_starting')
     NeoBundle 'tpope/vim-dispatch'
     NeoBundle 'fatih/vim-go'
     NeoBundle 'thoughtbot/vim-rspec'
+    NeoBundle 'udalov/kotlin-vim'
   call neobundle#end()
 endif
 
